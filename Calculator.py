@@ -17,6 +17,11 @@ class Calculator:
     def power(self, x, n):
         return x ** n  # Розрахунок степені числа
 
+    def gcd(self, x, y):
+        while y != 0:
+            x, y = y, x % y
+        return x  # Найбільший спільний дільник
+
 
 
 # Тести для класу Calculator
@@ -77,3 +82,14 @@ class TestCalculator:
         # Assert
         assert result == 8, "Піднесення числа до степені повинно повертати правильний результат"
 
+<<<<<<< HEAD
+=======
+    def test_gcd(self, calculator):
+        # Arrange
+        x = 24
+        y = 36
+        # Act
+        result = calculator.gcd(x, y)
+        # Assert
+        assert result == 12, "НСД чисел 24 та 36 повинен бути 12"
+>>>>>>> ecacb68 (Add gcd operation)
