@@ -8,6 +8,11 @@ class Calculator:
     def multiply(self, x, y):
         return x * y
 
+    def divide(self, x, y):
+        if y == 0:
+            raise ValueError("Ділення на нуль неможливе")
+        return x / y
+
 
 # Тести для класу Calculator
 import pytest
@@ -45,3 +50,12 @@ class TestCalculator:
         result = calculator.multiply(x, y)
         # Assert
         assert result == 15, "Множення цілих чисел повинно повертати їх добуток"
+
+    def test_divide(self, calculator):
+        # Arrange
+        x = 10
+        y = 2
+        # Act
+        result = calculator.divide(x, y)
+        # Assert
+        assert result == 5, "Ділення цілих чисел повинно повертати їх частку"
