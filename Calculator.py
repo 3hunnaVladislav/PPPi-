@@ -14,11 +14,18 @@ class Calculator:
         return x / y
 
 
+    def power(self, x, n):
+        return x ** n  # Розрахунок степені числа
+
+
+
 # Тести для класу Calculator
 import pytest
 
 
-@pytest.fixture----
+
+@pytest.fixture
+
 def calculator():
     return Calculator()
 
@@ -59,3 +66,14 @@ class TestCalculator:
         result = calculator.divide(x, y)
         # Assert
         assert result == 5, "Ділення цілих чисел повинно повертати їх частку"
+
+
+    def test_power(self, calculator):
+        # Arrange
+        x = 2
+        n = 3
+        # Act
+        result = calculator.power(x, n)
+        # Assert
+        assert result == 8, "Піднесення числа до степені повинно повертати правильний результат"
+
